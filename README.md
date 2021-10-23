@@ -9,6 +9,8 @@ Use Cpp Extension in  `code/sources/`  for negative sampling. To use the extensi
 
 The parameter adjustment is relatively simple, and the following is available for reference.
 
-python main.py   --layer 3   --dataset="amazon-book"   --temperature 0.1            --info sgk15_alpha0.45  
+python main.py   --layer 3   --dataset="amazon-book"   --temperature 0.1            --info sgk15_alpha0.45 
+
 python main.py   --layer 1  --dataset="ifashion"    --decay 1e-5  --temperature 0.2    --info sgk15_alpha0.60 
-python main.py   --layer 2  --dataset="yelp2018"      --temperature 0.2              --info sgk15_alpha0.45 & 
+
+python main.py   --layer 2  --dataset="yelp2018"      --temperature 0.2              --info sgk15_alpha0.45 
