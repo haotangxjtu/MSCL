@@ -1,5 +1,5 @@
 # MSCL
-Code for Multisample-based Contrastive Loss for Top-k Recommendation  (IEEE TMM).
+Code for Multisample-based Contrastive Loss for Top-k Recommendation  (IEEE TMM). It has been published in the Early Access area on IEEE Xplore. Digital Object Identifier: 10.1109/TMM.2021.3126146
 
 What we propose is a loss function that can be applied to many methods. Our code is based on the LightGCN. Thanks for the previous work and code https://github.com/gusye1234/LightGCN-PyTorch . We followed its setup, which you can refer to.
 
