@@ -76,16 +76,14 @@ class PureMF(BasicModel):
         
 
     def bpr_loss_gcl_Kpos(self,users_emb0,pos_emb0,users,pos_items,alpha):
-       # users_emb0,pos_emb0 =  self.computer(nd,fd)   #几次？
+  
 
         users_emb=   users_emb0[users] 
         loss=self.bpr_loss_gcl_unit(users_emb,pos_emb0[pos_items[:,0]],alpha)
         for i in range(pos_items.size()[1])[1:]:
             pos_emb=   pos_emb0[pos_items[:,i]]  
             loss=loss+self.bpr_loss_gcl_unit(users_emb,pos_emb,alpha)
-        
-       # losii=self.iiloss(pos_emb0,pos_items)
-               
+           
         return  loss.mean() ,0
   
     def bpr_loss_gcl_unit(self,users_emb,pos_emb,alpha): 
@@ -93,7 +91,7 @@ class PureMF(BasicModel):
         sim_batch=torch.exp(torch.mm(users_emb,pos_emb.t() ) /T )  
         posself=sim_batch.diag() 
         neg=  sim_batch.sum(dim=1)  
-       # lossRS=-torch.log(( posself+0.00001) /(neg+0.00001) ).mean()
+      
 
         lossRS= -alpha*torch.log( posself+0.00001)+(1-alpha)*torch.log(neg+0.00001) 
         lossRS=lossRS.mean()
@@ -226,7 +224,7 @@ class LightGCN(BasicModel):
                 # embs = torch.stack(embs, dim=1) 
                 # light_out = torch.mean(embs, dim=1)
                 #sg
-        light_out= embs[-1] 
+        #light_out= embs[-1] 
         users, items = torch.split(light_out, [self.num_users, self.num_items])
 
         return users, items 
