@@ -157,10 +157,7 @@ class LightGCN(BasicModel):
         self.f = nn.Sigmoid()
         self.Graph = self.dataset.getSparseGraph()
 
- 
-        self.alphapara = torch.nn.Parameter(torch.FloatTensor(1), requires_grad=True)
-        self.alphapara.data.fill_(0.5)
-       
+  
          # print("save_txt")
     def __dropout_x(self, x, keep_prob):
         size = x.size()
@@ -272,8 +269,7 @@ class LightGCN(BasicModel):
 #fei qita zhegnli
 ############################################################################################################################################
     def bpr_loss_gcl_Kpos(self,users_emb0,pos_emb0,users,pos_items,alpha):
-
-        alpha=self.alphapara
+ 
         users_emb=   users_emb0[users] 
         loss=self.bpr_loss_gcl_unit(users_emb,pos_emb0[pos_items[:,0]],alpha)
         for i in range(pos_items.size()[1])[1:]:
